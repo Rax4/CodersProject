@@ -1,0 +1,15 @@
+{% extends "::base.html.twig" %}
+
+{% block title %}BandMergerBundle:Band:create{% endblock %}
+
+{% block body %}
+<h1>Welcome to the Band:edit page</h1>
+
+<div class="band panel panel-default">
+{{form_start(form)}}
+{{form_widget(form)}}
+<br>
+<input style="color:black" type="submit" value="Create"></input>
+{{form_end(form)}}
+</div>
+{% endblock %}

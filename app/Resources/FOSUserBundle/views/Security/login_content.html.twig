@@ -1,0 +1,54 @@
+{% trans_default_domain 'FOSUserBundle' %}
+
+{% if error %}
+    <div>{{ error.messageKey|trans(error.messageData, 'security') }}</div>
+{% endif %}      
+<div class="container">
+  
+  <div class="row" id="pwd-container">
+    <div class="col-md-4"></div>
+    
+    <div class="col-md-4 main">
+      <section class="login-form">
+        <form method="post" action="{{ path("fos_user_security_check") }}"  role="login">
+            {% if csrf_token %}
+                <input type="hidden" name="_csrf_token" value="{{ csrf_token }}" />
+            {% endif %}
+            <img src="{{ asset('bundles/bandmerger/images/logo.png') }}" class="img-responsive" alt="" />
+          
+            <br>
+            <input class="form-control input-lg" type="text" id="username" name="_username" placeholder="Username" required="required" value="{{ last_username }}" />
+          
+            <br>
+            <input type="password" required="required" name="_password" class="form-control input-lg" id="password" placeholder="Password" required="" />
+          
+            <input type="checkbox" id="remember_me" name="_remember_me" value="on" />
+            <label for="remember_me">{{ 'security.login.remember_me'|trans }}</label>
+          <div class="pwstrength_viewport_progress"></div>
+          
+          <input class="btn btn-lg btn-primary btn-block" type="submit" id="_submit" name="_submit" value="{{ 'security.login.submit'|trans }}" />
+          <div>
+            <a href="/register">Create account</a> or <a href="#">reset password</a>
+          </div>
+          
+        </form>
+        
+        <div class="form-links">
+          <a href="#">www.website.com</a>
+        </div>
+      </section>  
+      </div>
+      
+      <div class="col-md-4"></div>
+      
+
+  </div>
+  
+  <p>
+    <br>
+    <br>
+    
+  </p>     
+  
+  
+</div>

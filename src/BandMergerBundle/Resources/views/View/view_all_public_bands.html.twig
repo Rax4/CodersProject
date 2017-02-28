@@ -1,0 +1,25 @@
+{% extends "::base.html.twig" %}
+
+{% block title %}Public Bands{% endblock %}
+{% block links %}
+    <li><a href="{{path('bandmerger_band_create')}}">Create Band</a></li>
+{% endblock %}
+{% block body %}
+    <h1>Public Bands</h1>
+    {% for band in bands %}
+        <div class="band panel panel-default">
+            <div style="text-align:center; background-color: rgba(0,0,0,0); color:red" class="panel-band panel-heading">{{band.name}}</div>
+            <div class="panel-body">
+                <p>Leader:{{band.admin}}<br>{{band.description}}<br></p>
+                <p>Band Members:</p>
+            </div>
+            <ul>
+                
+                {% for user in band.users %}
+                    <li>{{user.username}}</li>
+                {% endfor %}
+            </ul>
+        </div>
+    {% endfor %}
+    
+{% endblock %}

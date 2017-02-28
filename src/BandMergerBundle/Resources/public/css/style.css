@@ -1,0 +1,77 @@
+
+body
+{
+    background-image: url("../images/background.jpg");
+    background-size: cover;   
+    background-attachment: fixed;
+}
+.form-band
+{
+    text-align: center;
+}
+h1
+{
+    text-align: center;
+    color:red;
+    font-family: ironFont; 
+    background-color: black;
+    border-radius:  15px;
+}
+.navbar
+{
+    font-family: Nimbus Sans L;
+    font-size: 100%;
+    color: #ffff00;
+    margin-bottom: 6px;
+}
+.navbar-brand
+{
+    color: #ffff00;
+}
+@font-face 
+{
+    font-family: ironFont;
+    src: url(maiden.ttf);
+}
+@font-face 
+{
+    font-family: lucida2;
+    src: url(lucida2.ttf);
+}
+.main
+{
+    background-color: rgba(43, 44, 44, 0.9);
+    box-shadow: 1px 4px 40px 7px rgba(132,0,0,1);
+    margin-top: 10%;
+    background-image: url("../images/gtr.png");
+    background-position: center;
+    background-size: contain;
+    background-repeat: no-repeat;
+    border-radius: 10px; padding: 2%;
+}
+.band
+{
+    background-color: rgba(43, 44, 44, 0.9);
+    box-shadow: 1px 4px 40px 7px rgba(132,0,0,1);
+    color: white;
+    border-radius: 10px; padding: 2%;
+    border-color: #666666;
+}
+
+
+.panel-band
+{
+    background-color: inherit;
+    border: none;
+    border-radius: 5px;
+    font-size: 150%;
+    font-family: lucida2;
+}
+.panel-band link
+{
+    text-decoration: none;
+}
+.panel-band link on-hover
+{
+    text-decoration: none;
+}

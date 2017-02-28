@@ -1,0 +1,50 @@
+{% extends "::base.html.twig" %}
+
+{% block title %}BandMergerBundle:View:viewBand{% endblock %}
+{% block links %}
+    <li><a href="{{path('bandmerger_band_adduser',{'id':band.id})}}">Add User</a></li>
+    <li><a href="{{path('bandmerger_project_create',{'id':band.id})}}">Add Project</a></li>
+    <li><a href="{{path('bandmerger_band_edit',{'id':band.id})}}">Edit Band</a></li>
+{% endblock %}
+{% block body %}
+<h1>{{band.name}}</h1>
+<div class="band panel panel-default">
+    <div style="text-align:center; background-color: rgba(0,0,0,0); color:red" class="panel-band panel-heading">Band info:</div>
+        <div class="panel-body">
+            <p>Leader:{{band.admin}}<br>{{band.description}}<br></p>
+            <p>Band Members:</p>
+        </div>
+        <ul>
+
+            {% for user in band.users %}
+                <li>{{user.username}}{% if admin is same as (band.admin) %}{% if not user is same as (band.admin) %} - <a href="{{path('bandmerger_band_removeuser',{'id':band.id,'user':user.id})}}">Delete</a>{% endif %}{% endif %}</li>
+            {% endfor %}
+        </ul>
+</div>
+{% if band.projects[0] is defined %}
+    <div class="band panel panel-default">
+        <div style="text-align:center; background-color: rgba(0,0,0,0); color:red" class="panel-band panel-heading">Projects:</div>
+
+            <div class="panel-body">
+    <table class="table custab">
+        <thead>
+        {% if admin is same as (band.admin) %}<a href="{{path('bandmerger_project_create',{'id':band.id})}}" style="background-color: red; border: none" class="btn btn-primary btn-xs pull-right"><b>+</b> Add new project</a>{% endif %}
+            <tr>
+                <th>Track Title</th>
+                <th>Track Description</th>
+                <th class="text-center">Action</th>
+            </tr>
+        </thead>
+        {% for project in band.projects %}
+        <tr>
+            <td><a href="{{path('bandmerger_view_viewproject',{'id':project.id})}}">{{project.name}}</a></td>
+            <td>{{project.description}}</td>
+            <td class="text-center"><a class='btn btn-info btn-xs' href="{{path('bandmerger_project_edit',{'id':project.id,'admin':admin})}}"><span class="glyphicon glyphicon-edit"></span> Edit</a>{% if admin is same as (band.admin) %}<a href="{{path('bandmerger_project_delete',{'id':project.id,'admin':admin})}}" class="btn btn-danger btn-xs"><span class="glyphicon glyphicon-remove"></span> Del</a>{% endif %} </td>
+        </tr>
+        {% endfor %}
+    </table>
+            </div>
+    </div>
+{% endif %}
+            
+{% endblock %}

@@ -1,0 +1,19 @@
+{% extends "::base.html.twig" %}
+
+{% block title %}BandMergerBundle:View:viewProject{% endblock %}
+{% block links %}<li><a href="{{path('bandmerger_instrument_create',{'id':project.id})}}">Add Intrument</a></li>{% endblock %}
+
+{% block body %}
+<h1>Project {{project.name}}</h1>
+{% for instrument in project.instruments %}
+    <div class="band panel panel-default">
+            {% if not instrument.name is same as ('General') %}<a style="background-color: gray" class='btn btn-info btn-xs' href="{{path('bandmerger_instrument_edit',{'id':instrument.id})}}"><span class="glyphicon glyphicon-edit"></span> Edit</a>
+            {% if admin is same as (project.band.admin) %}
+            <a href="{{path('bandmerger_instrument_remove',{'id':instrument.id})}}" class="btn btn-danger btn-xs"><span class="glyphicon glyphicon-remove"></span> Del</a>{% endif %}{% endif %}
+        <div style="text-align:center; background-color: rgba(0,0,0,0); color:red" class="panel-band panel-heading">
+            {{instrument.name}}
+        </div>
+            <span style="align-self: center; text-align: center; width: 100%" class="">{{instrument.description}}</span>
+    </div>
+{% endfor %}   
+{% endblock %}

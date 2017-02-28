@@ -1,0 +1,63 @@
+{% trans_default_domain 'FOSUserBundle' %}
+<div class="container">
+  
+  <div class="row" id="pwd-container">
+    <div class="col-md-4"></div>
+    <div class="col-md-4 main">
+      <section class="login-form">
+            <img src="{{ asset('bundles/bandmerger/images/logo.png') }}" class="img-responsive" alt="" /><br>
+          <div class="pwstrength_viewport_progress"></div>
+          {{ form_start(form, {'method': 'post', 'action': path('fos_user_registration_register'), 'attr': {'class': 'fos_user_registration_register'}}) }}
+{#            {{ form_widget(form) }}#}
+            {{ form_widget(form.email,{'attr':
+                                                {
+                                                    'class':'form-control input-lg',
+                                                    'placeholder':"Email"
+                                                    
+                                                } }) }}
+            <br>{{ form_widget(form.username,{'attr':
+                                                {
+                                                    'class':'form-control input-lg',
+                                                    'placeholder':"Username"
+                                                    
+                                                } }) }}
+            <div id="fos_user_registration_form_plainPassword">
+            <div>
+                <br><input placeholder="Password" class="form-control input-lg" type="password" id="fos_user_registration_form_plainPassword_first" name="fos_user_registration_form[plainPassword][first]" required="required" />
+            </div>
+            <div>
+                <br><input placeholder="Repeat password" class="form-control input-lg" type="password" id="fos_user_registration_form_plainPassword_second" name="fos_user_registration_form[plainPassword][second]" required="required" />
+            </div>
+            </div>
+{#            <br>{{ form_widget(form.plainPassword,{'attr':
+                                                {
+                                                    'class':'form-control input-lg',
+                                                    'placeholder':"Password"
+                                                    
+                                                } }) }}#}
+            <div>
+               <br><input class="btn btn-lg btn-primary btn-block" type="submit" id="_submit" name="_submit" value="{{ 'registration.submit'|trans }}" />
+            </div>
+          <div>
+               <a href="/login">Log In</a> or <a href="#">reset password</a>
+          </div>
+        <div class="form-links">
+          <a href="#">www.website.com</a>
+        </div>
+      </section>  
+      </div>
+      
+      <div class="col-md-4"></div>
+      
+
+  </div>
+  
+  <p>
+    <br>
+    <br>
+    
+  </p>     
+  
+  
+</div>
+

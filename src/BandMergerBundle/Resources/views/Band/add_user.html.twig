@@ -1,0 +1,17 @@
+{% extends "::base.html.twig" %}
+
+{% block title %}AddUser{% endblock %}
+
+{% block body %}
+<h1>Add user</h1>
+<div class="form-band band panel panel-default">
+    <form method="POST" action="{{path('bandmerger_band_addusersave',{'id':band.id})}}">
+        <label class="large-10">Username:</label>
+        <input class="form-control input-lg" required="required" type="text" name="name" placeholder="username"></input><br>
+        <input class="form-control input-lg" value="Add" type="submit"></input>
+    </form><br>
+    {% if msg is defined %}
+        <h2 style="align-self: center">{{msg}}</h2>
+    {% endif %}
+</div>
+{% endblock %}
