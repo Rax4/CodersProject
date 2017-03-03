@@ -157,9 +157,9 @@ class BandController extends Controller
         $em = $this->getDoctrine()->getManager();
         $em->remove($band);
         $em->flush();
-        return $this->render('BandMergerBundle:View:view_all_bands.html.twig', array(
-            // ...
-        ));
+        return $this->redirectToRoute("bandmerger_view_viewallbands",
+                    [
+                    ]);
     }
 
     /**

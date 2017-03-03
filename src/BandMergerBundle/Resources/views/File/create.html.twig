@@ -3,5 +3,12 @@
 {% block title %}BandMergerBundle:File:create{% endblock %}
 
 {% block body %}
-<h1>Welcome to the File:create page</h1>
+<h1>Add File</h1>
+{{form_start(form)}}
+{{form_widget(form)}}
+<input type="submit" style="color:black" value="Create"></input>
+{{form_end(form)}}
+{% if msg is defined %}
+    <h2 style="align-self: center; color: white">{{msg}}</h2>
+{% endif %}
 {% endblock %}

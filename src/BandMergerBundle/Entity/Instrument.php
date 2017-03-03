@@ -86,29 +86,29 @@ class Instrument
     {
         $this->files = new \Doctrine\Common\Collections\ArrayCollection();
     }
-
-    /**
-     * Add filess
-     *
-     * @param \BandMergerBundle\Entity\File $files
-     * @return Instrument
-     */
-    public function addFiless(\BandMergerBundle\Entity\File $files)
-    {
-        $this->files[] = $files;
-
-        return $this;
-    }
-
-    /**
-     * Remove files
-     *
-     * @param \BandMergerBundle\Entity\File $files
-     */
-    public function removeFiless(\BandMergerBundle\Entity\File $files)
-    {
-        $this->files->removeElement($files);
-    }
+//
+//    /**
+//     * Add filess
+//     *
+//     * @param \BandMergerBundle\Entity\File $files
+//     * @return Instrument
+//     */
+//    public function addFiless(\BandMergerBundle\Entity\File $files)
+//    {
+//        $this->files[] = $files;
+//
+//        return $this;
+//    }
+//
+//    /**
+//     * Remove files
+//     *
+//     * @param \BandMergerBundle\Entity\File $files
+//     */
+//    public function removeFiless(\BandMergerBundle\Entity\File $files)
+//    {
+//        $this->files->removeElement($files);
+//    }
 
     /**
      * Get files

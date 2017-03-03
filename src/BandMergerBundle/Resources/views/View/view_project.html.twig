@@ -14,6 +14,24 @@
             {{instrument.name}}
         </div>
             <span style="align-self: center; text-align: center; width: 100%" class="">{{instrument.description}}</span>
+            <br>
+            <table class="table custab">
+                <thead>
+                    <tr>
+                        <th>File Name</th>
+                        <th>File Src</th>
+                        <th class="text-center">Action</th>
+                    </tr>
+                </thead>
+                {% for file in instrument.files %}
+                <tr>
+                    <td>{{file.name}}</td>
+                    <td><a href="{{ vich_uploader_asset(file, 'imageFile') }}">{{file.name}}</a></td>
+                    <td class="text-center"><a class='btn btn-info btn-xs' href="{{path('bandmerger_file_edit',{'id':file.id,'admin':admin})}}"><span class="glyphicon glyphicon-edit"></span> Edit</a>{% if admin is same as (project.band.admin) %}<a href="{{path('bandmerger_file_remove',{'id':file.id,'admin':admin})}}" class="btn btn-danger btn-xs"><span class="glyphicon glyphicon-remove"></span> Del</a>{% endif %} </td>
+                </tr>
+                {% endfor %}
+            </table>
+            <a href="{{path('bandmerger_file_create',{'id':instrument.id})}}">Add File</a>
     </div>
 {% endfor %}   
 {% endblock %}
